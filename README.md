@@ -123,7 +123,7 @@ try{
 <?php
 // Send an event
 try {
-    $client->contact()->sendevent([
+    $client->event()->sendevent([
         'event_name' => 'account_created',
         'email' => 'john@example.com',
         'list_uid' => '5fc9e55410e10'
