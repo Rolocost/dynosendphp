@@ -7,6 +7,7 @@ use DynosendSDK\Resource\Campaign;
 use DynosendSDK\Resource\Audience;
 use DynosendSDK\Resource\Contact;
 use DynosendSDK\Resource\Event;
+use DynosendSDK\Resource\Transactional;
 
 
 class Client {
@@ -43,6 +44,10 @@ class Client {
 
     public function event() {
         return new Event([], $this);
+    }
+	
+	public function transactional() {
+        return new Transactional([], $this);
     }
 
     public function loginToken() {
