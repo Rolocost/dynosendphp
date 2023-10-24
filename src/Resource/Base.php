@@ -54,8 +54,21 @@ class Base {
                 'body' => json_encode(array_merge(['api_token' => $this->client->getToken()], $params)),
             ]);
         } catch (\Exception $e) {
-            echo 'Uh oh! ' . $e->getMessage();
-            return;
+            if ($e->hasResponse()) {
+				$statusCode = $e->getResponse()->getStatusCode();
+				$responseBody = json_decode($e->getResponse()->getBody(), true);
+				return [
+					'error' => true,
+					'error_code' => $statusCode,
+					'message' => json_encode($responseBody),
+				];
+			} else {
+				return [
+					'error' => true,
+					'error_code' => $statusCode,
+					'message' => json_encode($responseBody),
+				];
+			}
         }
         
         return json_decode($response->getBody(), true);
