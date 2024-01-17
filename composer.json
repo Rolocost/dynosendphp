@@ -2,7 +2,7 @@
     "name": "rolocost/dynosendphp",
     "description": "PHP API wrapper for Dynosend customer engagement platform",
     "require": {
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^7.0"
     },
     "autoload": {
         "psr-4": {"DynosendSDK\\": "src/"}
