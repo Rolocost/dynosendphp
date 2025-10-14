@@ -26,9 +26,9 @@ class Base {
         
         $client = new \GuzzleHttp\Client(['http_errors' => true]);
         $headers = array_merge([
-            'Content-Type' => 'application/json',
-            'Authorization' => "Bearer " . $this->client->getToken(),
-        ], $headers);
+		    'Content-Type' => 'application/json',
+		    'Authorization' => "Bearer " . $this->client->getToken(),
+		], (array) $headers);
         try {
             $response = $client->request($method, $uri, [
                 'headers' => $headers,
